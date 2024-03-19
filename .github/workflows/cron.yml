@@ -1,0 +1,13 @@
+name: cron-job
+on:
+  schedule:
+    # runs tests every day at 9:00 pm CST
+    - cron: '40 16 * * *'
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress nightly tests
+        uses: cypress-io/github-action@v6
